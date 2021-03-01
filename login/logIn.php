@@ -1,14 +1,14 @@
 <html>
     <head>
-        <title>Registrierung</title>
-        <link rel="stylesheet" type="text/css" href="register.css">
+        <title>Anmeldung</title>
+        <link rel="stylesheet" type="text/css" href="login.css">
     </head>
     <body>
         
         <div class="main">
             <div class="wrapper">
                 <img src="adashoplogo.png" width="250px"><br><br>
-                <form action="register.php" method="post" html dont show username>
+                <form action="login.php" method="post" html dont show username>
                     <table>
                         
                         <!-- EMAIL -->
