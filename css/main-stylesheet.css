@@ -1,0 +1,122 @@
+
+@font-face {
+    font-family: 'Zwizz Bold';
+    font-weight: normal;
+    src: url('/fonts/Zwizz-Bold.ttf') format('truetype');
+}
+    
+    
+@font-face {
+    font-family: 'Zwizz Regular';
+    font-weight: normal;
+    font-style: normal;
+    src: url('/fonts/Zwizz-Regular.ttf') format('truetype');
+}
+
+
+html{
+    /* SCROLLLEISTE MIT FARBE MODIFIZIERT */
+    --scrollbarBG: #111111; 
+    --thumbBG: #777777;
+    font-family: 'Zwizz Regular';
+    background-color: #000000;
+    /* SCROLLLEISTE MIT FARBE MODIFIZIERT */
+}
+
+body::-webkit-scrollbar {
+    width: 11px;
+  }
+  body {
+    scrollbar-width: thin;
+    scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--scrollbarBG);
+  }
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--thumbBG) ;
+    border-radius: 6px;
+    border: 3px solid var(--scrollbarBG);
+  }
+
+
+  a{
+    color: white;
+    text-decoration: none;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+a:hover{
+    color: grey;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+/* KNOPF GLOBAL */
+
+button{
+    border: none;
+    background-color: #7c43bd;
+    color: white;
+    font-size: 12pt;
+    font-family: 'Zwizz Bold';
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button:hover{
+    border: none;
+    background-color: #4a148c;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    cursor: pointer;
+}
+
+/* KNOPF GLOBAL */
+
+
+
+
+
+
+/* FOOTER MIT IMPRESSUM, KONTAKT ETC. */
+
+footer{
+    width: 100%;
+    text-align:center;
+}
+
+footer a{
+    color: white;
+    font-size: 12pt;
+    display: inline;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+footer a:hover{
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+    color: grey;
+}
+
+footer p{
+    display: inline;
+    font-size: 12pt;
+}
+
+
+/* HORIONTALE LINIE FÜR DEN FOOTER */
+
+.blur-rule {
+    text-align: center;
+    height: 0.6px;
+    width: 66%;
+    background-color: #4a148c;
+    margin: 20px 0;
+    display: block;
+    margin: auto;
+    -webkit-box-shadow: 0 0 4px 0 #666;
+    -moz-box-shadow: 0 0 4px 0 #666;
+    box-shadow: 0 0 4px 0 #666;
+    margin-bottom: 10px;
+  }
+
+  /* HORIONTALE LINIE FÜR DEN FOOTER */
+
+/* FOOTER ENDET HIER*/

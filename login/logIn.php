@@ -1,23 +1,36 @@
+<?php
+    include(dirname(__FILE__)."/../dbconnection.php"); // HERSTELLEN DER DATENBANK VERBINDUNG
+  
+    $email = filter_input(INPUT_POST, 'email');
+    $password_1 = filter_input(INPUT_POST, 'password_1');
+?>
+
 <html>
     <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="css/loginregister.css">
+        <link rel="stylesheet" type="text/css" href="../css/main-stylesheet.css">
+        <script src="../js/sitescript.js"></script>
         <title>Anmeldung</title>
-        <link rel="stylesheet" type="text/css" href="login.css">
-    </head>
     <body>
         
         <div class="main">
+
             <div class="wrapper">
-                <img src="adashoplogo.png" width="250px"><br><br>
-                <form action="login.php" method="post" html dont show username>
+            <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
+            <fieldset>
+                <h1>Anmelden</h1>
+                <form action="login.php" method="post">     <!-- html dont show username  - austesten!!! -->
                     <table>
                         
                         <!-- EMAIL -->
                         
                         <tr>
                             <td>
-                                <i class="fas fa-mail"></i> <!-- E-Mail Icon -->
                                 <p style="display:inline;color:red">* </p>
-                                <p style="display:inline;">E-Mail :</p>
+                                <p style="display:inline;">E-Mail:</p>
                             </td>
                             <td>
                                 <input type="text" name="email" autocomplete="on" required>
@@ -31,8 +44,8 @@
                         
                         <tr>
                             <td>           
-                                <i class="fas fa-lock"></i>                 
-                                <p>Passwort :</p>
+                                <p style="display:inline;color:red">* </p>                
+                                <p style="display:inline;">Passwort:</p>
                             </td>
                             <td>
                                 <input type="password" name="password_1" required>
@@ -41,28 +54,33 @@
                         
                         <!-- PASSWORD -->
                         
-                        <!-- PASSWORD WIEDERHOLEN -->
-                        
-                        <tr>
-                            <td>           
-                                <i class="fas fa-lock"></i>                 
-                                <p>Passwort wiederholen:</p>
-                            </td>
-                            <td>
-                                <input type="password" name="password_2" required>
-                            </td>
-                        </tr>
-                        
-                        <!-- PASSWORD WIEDERHOLEN -->
                         
                     </table>
                     <br>
-                    <button type="submit" name="reg_user" value="register" style="width: 200px;height:50px">
-                        registrieren
+                    <button type="submit" name="log_user" value="login" style="width: 270px;height:34px">
+                        einloggen
                     </button>
-                </form>        
+                </form>
+                </fieldset>      
             </div>
-        </div>
-                
+
+        </div>        
+<br>               
+                <a href="register.php">Kein Konto?</a>
+                <br><br>
+        <footer>
+        <div class="blur-rule"></div>
+        <br><br>
+        <a href="../impressum.php">Impressum&nbsp;&nbsp;</a>
+        <a href="../datenschutz.html">Datenschutz&nbsp;&nbsp;</a>
+        <a href="../kontakt.html">Kontakt&nbsp;</a>
+       <br><br>
+        <p>© </p>
+        <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
+        <p>...an-die-Arbeit e.V.</p>
+        </footer>
+
+
+
     </body>
 </html>

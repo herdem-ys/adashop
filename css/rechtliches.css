@@ -1,0 +1,31 @@
+body{
+    color:white;
+    width:40%;
+    text-align:center;
+    font-size:12pt;
+    margin:auto;
+}
+
+disclaimer{
+    text-align:left;
+}
+
+disclaimer h1{
+    font-family: 'Zwizz Regular';
+    margin-left: -30px;
+}
+
+disclaimer p{
+    color: #818181;
+    padding-left: 20px;
+}
+
+disclaimer a{
+    color:#7c43bd;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+disclaimer a:hover{
+    color:#dec0ff;
+    transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
