@@ -10,6 +10,12 @@
 </head>
 <body>
 <a href="index.php"><img src="images/adashoplogo.png" width="230px"></a><br><br>
+<a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
+    <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
+    <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
+    <br>
+<div class="blur-rule"></div>
+<wrapper>
 <disclaimer>
     <h1><b>Impressum</b></h1>
 
@@ -41,6 +47,7 @@
     <p>Quelle: <a href="https://www.e-recht24.de">eRecht24</a></p>
 
     </disclaimer>
+    </wrapper>
     <footer>
         <div class="blur-rule"></div>
         <br><br>

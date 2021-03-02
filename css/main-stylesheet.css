@@ -106,7 +106,7 @@ footer p{
 .blur-rule {
     text-align: center;
     height: 0.6px;
-    width: 66%;
+    width: 79%;
     background-color: #4a148c;
     margin: 20px 0;
     display: block;
@@ -116,6 +116,8 @@ footer p{
     box-shadow: 0 0 4px 0 #666;
     margin-bottom: 10px;
   }
+
+
 
   /* HORIONTALE LINIE FÜR DEN FOOTER */
 

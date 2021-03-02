@@ -22,7 +22,8 @@ session_start();
     <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
     <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
     <br>
-
+    <div class="blur-rule"></div><br> 
+<img src="https://i.pinimg.com/originals/86/00/d7/8600d76f089797d6078f2a5b52129aca.gif" width="200px">
 
 
     <footer>

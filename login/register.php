@@ -24,6 +24,11 @@
 
             <div class="wrapper">
             <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
+            <a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
+            <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
+            <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
+            <br>
+            <div class="blur-rule"></div><br> 
             <fieldset>
                 <h1>Neues Konto</h1>
                 <form action="register.php" method="post" html dont show username>
@@ -149,7 +154,7 @@
                         
                     </table>
                     <br>
-                    <button type="submit" name="reg_user" value="register" style="width: 290px;height:50px">
+                    <button type="submit" name="reg_user" value="register" style="width: 270px;height:34px">
                         registrieren
                     </button>
                 </form>
@@ -166,8 +171,8 @@
         <div class="blur-rule"></div>
         <br><br>
         <a href="../impressum.php">Impressum&nbsp;&nbsp;</a>
-        <a href="../datenschutz.html">Datenschutz&nbsp;&nbsp;</a>
-        <a href="../kontakt.html">Kontakt&nbsp;</a>
+        <a href="../datenschutz.php">Datenschutz&nbsp;&nbsp;</a>
+        <a href="../kontakt.php">Kontakt&nbsp;</a>
        <br><br>
         <p>© </p>
         <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
