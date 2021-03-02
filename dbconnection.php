@@ -4,5 +4,5 @@
     $dbpassword = "";
     $dbname = "adashop";  
 
-    $conn = new mysqli($host, $dbusername, $dbpassword, $dbname); // VERBINDUNG
+    $con = new mysqli($host, $dbusername, $dbpassword, $dbname); // VERBINDUNG
 ?>

@@ -6,6 +6,24 @@
     $email = filter_input(INPUT_POST, 'email');
     $password_1 = filter_input(INPUT_POST, 'password_1');
     $password_2 = filter_input(INPUT_POST, 'password_2'); // Passwort wiederholung
+
+    $gebDatum = filter_input(INPUT_POST, 'gebDatum');
+    $iban = filter_input(INPUT_POST, 'iban');
+    $ort = filter_input(INPUT_POST, 'ort');
+    $plz = filter_input(INPUT_POST, 'plz');
+    $strasse = filter_input(INPUT_POST, 'strasse');
+    $hausnummer = filter_input(INPUT_POST, 'hausnummer'); // Passwort wiederholung
+
+    $query = "INSERT INTO tblKunde (kGebDat ,kNachname,kVorname,kStrasse,kPlz,kOrt,kIban,kPasswort,kMail)
+              VALUES ('$gebDatum','$nachname','$vorname','$strasse','$plz','$ort','$iban','$password_1','$email')";
+
+    $result = $con->query($query);
+    
+    if (!$result) {
+        die('Datenbankfehler: '.$con->errorInfo()[2]);
+    };
+
+
 ?>
 
 
@@ -84,7 +102,6 @@
                         
                         <tr>
                             <td>           
-                                <i class="fas fa-lock"></i> 
                                 <p style="display:inline;color:red">* </p>                
                                 <p style="display:inline;">Passwort wiederholen:</p>
                             </td>
@@ -95,7 +112,15 @@
                         
                         <!-- PASSWORD WIEDERHOLEN -->
 
-
+                        <tr>
+                            <td>
+                                <p style="display:inline;color:red">* </p>    
+                                <p style="display:inline;">Geburtsdatum:</p>
+                            </td>
+                            <td>
+                                <input type="text" name="gebDatum" autocomplete="on" required> 
+                            </td>
+                        </tr>
 
                         <tr>
                             <td>
