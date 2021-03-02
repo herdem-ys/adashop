@@ -19,8 +19,8 @@ session_start();
 <body>
     <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
     <a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
-    <a href="/login/login.php" style="text-align:center">REGISTER</a><br><br>
-    <a href="/login/login.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
+    <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
+    <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
     <br>
 
 
