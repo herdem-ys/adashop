@@ -13,30 +13,46 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="/css/index.css">
     <link rel="stylesheet" type="text/css" href="/css/main-stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="/css/navbar.css">
     <script src="js/sitescript.js"></script>
     <title>An die Arbeit - Online Shop</title>
 </head>
 <body>
-    <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
-    <a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
-    <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
-    <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
-    <br>
-    <div class="blur-rule"></div><br> 
-<img src="https://i.pinimg.com/originals/86/00/d7/8600d76f089797d6078f2a5b52129aca.gif" width="200px">
+    <header>
+            <a href="../index.php">
+                <img src="../images/adashoplogo.png" width="230px">
+            </a>
+            <br>
+            <nav>
+                                <div class="appleNav">
+                                    <ul>
+                                        <li><a href="/specialoffer.php">Special-Offers</a></li>
+                                        <li><a href="/buy.php">Jetzt-Kaufen</a></li>
+                                        <li><a href="/kleidung.php">Kleidung</a></li>
+                                        <li><a href="/spielsachen.php">Spielzeuge</a></li>
+                                        <li><a href="/books_dvds.php">Bücher & DVDs</a></li>
+                                        <li><a href="/login/login.php">Anmelden</a></li>
+                                    </ul>
+                                </div>
+            </nav>
+    </header>
 
+    <main>
 
-    <footer>
-        <div class="blur-rule"></div>
+    </main>
+
+    <footer><br>
+            <div class="blur-rule"></div>
+            <br><br>
+            <a href="impressum.php">Impressum&nbsp;&nbsp;</a>
+            <a href="datenschutz.php">Datenschutz&nbsp;&nbsp;</a>
+            <a href="kontakt.php">Kontakt&nbsp;</a>
         <br><br>
-        <a href="impressum.php">Impressum&nbsp;&nbsp;</a>
-        <a href="datenschutz.php">Datenschutz&nbsp;&nbsp;</a>
-        <a href="kontakt.php">Kontakt&nbsp;</a>
-       <br><br>
-        <p>© </p>
-        <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
-        <p>...an-die-Arbeit e.V.</p>
-        </footer>
+            <p>© </p>
+            <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
+            <p>...an-die-Arbeit e.V.</p>
+    </footer>
+
 </body>
 </html>
 

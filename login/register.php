@@ -34,19 +34,32 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/loginregister.css">
         <link rel="stylesheet" type="text/css" href="../css/main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/css/navbar.css">
         <script src="../js/sitescript.js"></script>
         <title>Registrierung</title>
     <body>
         
-        <div class="main">
-
-            <div class="wrapper">
-            <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
-            <a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
-            <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
-            <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
+    <header>
+            <a href="../index.php">
+                <img src="../images/adashoplogo.png" width="230px">
+            </a>
             <br>
-            <div class="blur-rule"></div><br> 
+            <nav>
+                                <div class="appleNav">
+                                    <ul>
+                                        <li><a href="../specialoffer.php">Special-Offers</a></li>
+                                        <li><a href="../buy.php">Jetzt-Kaufen</a></li>
+                                        <li><a href="../kleidung.php">Kleidung</a></li>
+                                        <li><a href="../spielsachen.php">Spielzeuge</a></li>
+                                        <li><a href="../books_dvds.php">Bücher & DVDs</a></li>
+                                        <li><a href="../login/login.php">Anmelden</a></li>
+                                    </ul>
+                                </div>
+            </nav>
+        </header>
+
+        <main>
+        <br><br>
             <fieldset>
                 <h1>Neues Konto</h1>
                 <form action="register.php" method="post" html dont show username>
@@ -184,15 +197,13 @@
                     </button>
                 </form>
                 <br>
-                </fieldset>      
-            </div>
+                </fieldset>             
 
-        </div>        
-<br>
+                <br>
 
-<a href="login.php">Bereits ein Konto?</a>
-                <br><br>
-        <footer>
+            <a href="login.php">Bereits ein Konto?</a>
+</main>
+        <footer><br>
         <div class="blur-rule"></div>
         <br><br>
         <a href="../impressum.php">Impressum&nbsp;&nbsp;</a>

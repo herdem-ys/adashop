@@ -12,77 +12,92 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" type="text/css" href="css/loginregister.css">
         <link rel="stylesheet" type="text/css" href="../css/main-stylesheet.css">
+        <link rel="stylesheet" type="text/css" href="/css/navbar.css">
         <script src="../js/sitescript.js"></script>
         <title>Anmeldung</title>
     <body>
-        
-        <div class="main">
-
-            <div class="wrapper">
-            <a href="../index.php"><img src="../images/adashoplogo.png" width="230px"></a><br><br>
-            <a href="/login/login.php" style="text-align:center">LOGIN</a><br><br>
-            <a href="/login/register.php" style="text-align:center">REGISTER</a><br><br>
-            <a href="/login/produktgalerie.php" style="text-align:center">PRODUKTGALERIE</a><br><br>
+        <header>
+            <a href="../index.php">
+                <img src="../images/adashoplogo.png" width="230px">
+            </a>
             <br>
-            <div class="blur-rule"></div><br>
-            <fieldset>
-                <h1>Anmelden</h1>
-                <form action="login.php" method="post">     <!-- html dont show username  - austesten!!! -->
-                    <table>
-                        
-                        <!-- EMAIL -->
-                        
-                        <tr>
-                            <td>
-                                <p style="display:inline;color:red">* </p>
-                                <p style="display:inline;">E-Mail:</p>
-                            </td>
-                            <td>
-                                <input type="text" name="email" autocomplete="on" required>
-                            </td>
-                        </tr>
-                        
-                        <!-- EMAIL -->
-                        
-                        
-                        <!-- PASSWORD -->
-                        
-                        <tr>
-                            <td>           
-                                <p style="display:inline;color:red">* </p>                
-                                <p style="display:inline;">Passwort:</p>
-                            </td>
-                            <td>
-                                <input type="password" name="password_1" required>
-                            </td>
-                        </tr>
-                        
-                        <!-- PASSWORD -->
-                        
-                        
-                    </table>
-                    <br>
-                    <button type="submit" name="log_user" value="login" style="width: 270px;height:34px">
-                        einloggen
-                    </button>
-                </form>
-                </fieldset>      
-            </div>
+            <nav>
+                                <div class="appleNav">
+                                    <ul>
+                                        <li><a href="../specialoffer.php">Special-Offers</a></li>
+                                        <li><a href="../buy.php">Jetzt-Kaufen</a></li>
+                                        <li><a href="../kleidung.php">Kleidung</a></li>
+                                        <li><a href="../spielsachen.php">Spielzeuge</a></li>
+                                        <li><a href="../books_dvds.php">Bücher & DVDs</a></li>
+                                        <li><a href="../login/login.php">Anmelden</a></li>
+                                    </ul>
+                                </div>
+            </nav>
+        </header>
 
-        </div>        
-<br>               
+        <main>
+                <br><br>
+                <fieldset>
+                        <h1>Anmelden</h1>
+                        <form action="login.php" method="post">     <!-- html dont show username  - austesten!!! -->
+                            <table>
+                                
+                                <!-- EMAIL -->
+                                
+                                <tr>
+                                    <td>
+                                        <p style="display:inline;color:red">* </p>
+                                        <p style="display:inline;">E-Mail:</p>
+                                    </td>
+                                    <td>
+                                        <input type="text" name="email" autocomplete="on" required>
+                                    </td>
+                                </tr>
+                                
+                                <!-- EMAIL -->
+                                
+                                
+                                <!-- PASSWORD -->
+                                
+                                <tr>
+                                    <td>           
+                                        <p style="display:inline;color:red">* </p>                
+                                        <p style="display:inline;">Passwort:</p>
+                                    </td>
+                                    <td>
+                                        <input type="password" name="password_1" required>
+                                    </td>
+                                </tr>
+                                
+                                <!-- PASSWORD -->
+                                
+                                
+                            </table>
+                            <br>
+                            <button type="submit" name="log_user" value="login" style="width: 270px;height:34px">
+                                einloggen
+                            </button>
+                        </form>
+                        </fieldset>      
+                    </div>
+
+                </div>        
+                <br>               
                 <a href="register.php">Kein Konto?</a>
                 <br><br>
+        </main>
+
         <footer>
-        <div class="blur-rule"></div>
-        <br><br>
-        <a href="../impressum.php">Impressum&nbsp;&nbsp;</a>
-        <a href="../datenschutz.php">Datenschutz&nbsp;&nbsp;</a>
-        <a href="../kontakt.php">Kontakt&nbsp;</a>
-       <br><br>
-        <p>© </p>
-        <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
-        <p>...an-die-Arbeit e.V.</p>
+                <br>
+                <div class="blur-rule"></div>
+                <br><br>
+                <a href="../impressum.php">Impressum&nbsp;&nbsp;</a>
+                <a href="../datenschutz.php">Datenschutz&nbsp;&nbsp;</a>
+                <a href="../kontakt.php">Kontakt&nbsp;</a>
+                <br><br>
+                <p>© </p>
+                <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
+                <p>...an-die-Arbeit e.V.</p>
         </footer>
 
 

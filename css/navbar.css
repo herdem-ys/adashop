@@ -1,1 +1,33 @@
-adasd
+nav{
+height: 42px;
+background: #0e0011;
+font-family: Zwizz Bold;
+border-bottom: 0.5px solid #fff;
+}
+
+nav ul {  
+    display: flex;
+    height: 44px;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0;
+    margin: 0 auto;
+    list-style-type: none;
+  }
+  
+  
+  nav a:not(:last-child){
+    display: block;
+    font-family: Zwizz Bold;
+    color: rgb(163, 163, 163);
+    font-size: 15px;
+    font-weight: lighter;
+    padding-right: 12px;
+    text-decoration: none;
+    transition: 0.3s;
+  }
+  
+  .appleNav {
+    max-width: 980px;
+    margin: 0 auto;
+  }
