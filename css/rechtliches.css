@@ -25,3 +25,7 @@ disclaimer a:hover{
     color:#dec0ff;
     transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
+
+main{
+    width: 45%;
+}

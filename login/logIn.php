@@ -1,8 +1,42 @@
 <?php
+    session_start();
+
     include(dirname(__FILE__)."/../dbconnection.php"); // HERSTELLEN DER DATENBANK VERBINDUNG
   
-    $email = filter_input(INPUT_POST, 'email');
-    $password_1 = filter_input(INPUT_POST, 'password_1');
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        echo 'Sind sie bereits eingeloggt!';
+        header('Location: index.php');
+        exit;
+    } else {
+        $email = filter_input(INPUT_POST, 'email');
+        $password_1 = filter_input(INPUT_POST, 'password_1');
+
+        // To protect MySQL injection (more detail about MySQL injection)
+        $email = stripslashes($email);
+        $password_1 = stripslashes($password_1);
+
+
+        $sqlLoginUser = "SELECT *
+                          FROM tblKunde
+                          WHERE kMail='$email' and kPasswort='$password_1'";
+
+        $result = $con->query($sqlLoginUser);
+    
+
+        while ($row = $result->fetch_row()) {
+            // Die Felder der jeweiligen Zeile sind jetzt im Array $row enthalten.
+           }
+           
+    
+        // If the result matched $username and $password, the table row must be one row
+        if($row == 1){
+            session_start();
+            $_SESSION['loggedin'] = true;
+            $_SESSION['email'] = $email;
+        }
+    }
+
+
 ?>
 
 <html>
@@ -99,7 +133,6 @@
                 <p><script>document.write(new Date().getFullYear())</script></p>  <!-- aktuelles Jahr -->
                 <p>...an-die-Arbeit e.V.</p>
         </footer>
-
 
 
     </body>

@@ -19,15 +19,24 @@ nav ul {
   nav a:not(:last-child){
     display: block;
     font-family: Zwizz Bold;
-    color: rgb(163, 163, 163);
-    font-size: 15px;
-    font-weight: lighter;
-    padding-right: 12px;
     text-decoration: none;
     transition: 0.3s;
+
   }
   
   .appleNav {
     max-width: 980px;
     margin: 0 auto;
   }
+
+
+
+  nav li{
+    border-right: 0.75px solid white;
+    border-left: 0.75px solid white;
+    height: 40%;
+    padding-left: 8px;
+    padding-right: 8px;
+  }
+
+

@@ -24,6 +24,8 @@
     };
 
 
+
+
 ?>
 
 
@@ -47,7 +49,7 @@
             <nav>
                                 <div class="appleNav">
                                     <ul>
-                                        <li><a href="../specialoffer.php">Special-Offers</a></li>
+                                        <a href="../specialoffer.php"><li>Special-Offers</li></a>
                                         <li><a href="../buy.php">Jetzt-Kaufen</a></li>
                                         <li><a href="../kleidung.php">Kleidung</a></li>
                                         <li><a href="../spielsachen.php">Spielzeuge</a></li>
