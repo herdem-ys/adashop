@@ -14,22 +14,29 @@
 }
 
 
+
+
 html{
     /* SCROLLLEISTE MIT FARBE MODIFIZIERT */
     --scrollbarBG: #111111; 
     --thumbBG: #777777;
     font-family: 'Zwizz Regular';
     background-color: #000000;
+    color: white;
+    text-align: center;
     /* SCROLLLEISTE MIT FARBE MODIFIZIERT */
 }
 
 body::-webkit-scrollbar {
     width: 11px;
   }
+
   body {
     scrollbar-width: thin;
     scrollbar-color: var(--thumbBG) var(--scrollbarBG);
+    margin: 0;
   }
+
   body::-webkit-scrollbar-track {
     background: var(--scrollbarBG);
   }
@@ -40,7 +47,7 @@ body::-webkit-scrollbar {
   }
 
 
-  a{
+a{
     color: white;
     text-decoration: none;
     transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
@@ -81,6 +88,7 @@ button:hover{
 footer{
     width: 100%;
     text-align:center;
+    color: white;
 }
 
 footer a{
@@ -101,7 +109,7 @@ footer p{
 }
 
 
-/* HORIONTALE LINIE FÜR DEN FOOTER */
+
 
 .blur-rule {
     text-align: center;
@@ -117,8 +125,3 @@ footer p{
     margin-bottom: 10px;
   }
 
-
-
-  /* HORIONTALE LINIE FÜR DEN FOOTER */
-
-/* FOOTER ENDET HIER*/

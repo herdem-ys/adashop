@@ -44,10 +44,6 @@ input[type=text] {
     box-sizing: border-box;
   }
 
-button{
-    background-color: white;
-    border: none;
-}
 
 fieldset{
     width: 65%;
