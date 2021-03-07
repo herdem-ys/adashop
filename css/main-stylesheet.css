@@ -125,3 +125,13 @@ footer p{
     margin-bottom: 10px;
   }
 
+
+
+.column-container{
+    display: table;
+    width: 100%;
+}
+
+.column{
+    display: table-cell;
+}
