@@ -108,7 +108,7 @@ session_start();
 
 <p style="font-size:45pt">
 
-Spielzeuge
+Bücher & DVD's
 </p>
 
 </main>

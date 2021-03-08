@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="/css/navbar.css">
 
     <link rel="stylesheet" type="text/css" href="/css/rechtliches.css">
-    <title>Impressum</title>
+    <title>Kontakt</title>
 </head>
 <body>
 <header>
