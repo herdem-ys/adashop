@@ -79,8 +79,9 @@ button:hover{
 /* KNOPF GLOBAL */
 
 
-
-
+main{
+    margin-top: 20px;
+}
 
 
 /* FOOTER MIT IMPRESSUM, KONTAKT ETC. */
@@ -89,6 +90,7 @@ footer{
     width: 100%;
     text-align:center;
     color: white;
+    overflow: hidden;
 }
 
 footer a{
@@ -127,11 +129,52 @@ footer p{
 
 
 
-.column-container{
-    display: table;
-    width: 100%;
+
+
+
+
+
+
+
+
+
+
+    /* PRODUKTGALERIE */
+    /* PRODUKTGALERIE */
+    /* PRODUKTGALERIE */
+    /* PRODUKTGALERIE */
+
+div.galleryWrapper{
+    margin: auto;
+    width: 75%;
 }
 
-.column{
-    display: table-cell;
-}
+  div.galleryItem {
+  margin: 5px;
+  border: 1px solid #ccc;
+  float: left;  width: 180px;
+      transition: .5s ease;
+  }
+
+  div.galleryItem:hover {
+  border: 1px solid #777;
+  cursor: pointer;
+  box-shadow: 0px 0px 8px white;
+  transition: .3s ease;
+  }
+
+  div.galleryItem img {
+  width: 100%;
+  height: auto;
+  }
+
+  div.desc {
+  padding: 15px;
+  text-align: center;
+  }
+
+  div.price {
+    padding: 4px;
+    text-align: right;
+    font-size: 16pt;
+  }

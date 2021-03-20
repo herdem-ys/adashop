@@ -5,4 +5,8 @@
     $dbname = "adashop";  
 
     $con = new mysqli($host, $dbusername, $dbpassword, $dbname); // VERBINDUNG
+
+    if ($con->connect_error) { // VERBINDUNG TESTEN
+        die("Connection failed: " . $con->connect_error);
+      }
 ?>
