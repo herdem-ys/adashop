@@ -108,8 +108,7 @@ session_start();
 
 <p style="font-size:45pt">
 
-
-INDEX DATEI
+<a href="produktgalerie.php"><button>ZUR PRODUKTGALERIE</button></a>
 </p>
 
 
