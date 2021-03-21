@@ -42,6 +42,15 @@ session_start();
 
 <a href="produktgalerie.php"><button>ZUR PRODUKTGALERIE</button></a>
 
+<p>
+EINEN ARTIKEL MIT ZUSTAND, KATEGORIE AUSGEBEN<br><br><br>
+SELECT *<br>
+FROM tblArtikel<br>
+LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID<br>
+RIGHT JOIN tblZustand ON tblArtikel.f_zustID = p_zustID<br>
+RIGHT JOIN tblKategorie ON tblArtikel.f_katID = p_katID; <br><br>
+
+Die korrekte Darstellung der Umlaute wird von mir noch behoben!
 
 
 </main>

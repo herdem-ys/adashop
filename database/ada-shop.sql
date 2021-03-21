@@ -62,3 +62,74 @@ CREATE TABLE IF NOT EXISTS tblBestellposition (
 	FOREIGN KEY ( f_bstID ) REFERENCES tblBestellung ( p_bstID ),
 	FOREIGN KEY ( f_artID ) REFERENCES tblArtikel ( p_artID )
 );
+
+
+
+-- FILL
+
+
+INSERT INTO tblZustand
+VALUES 	(NULL,"Neuwertig"),
+		(NULL,"Wie neu"),
+		(NULL,"Selten genutzt"),
+		(NULL,"Gebraucht");
+
+
+
+INSERT INTO tblKategorie
+VALUES 	(NULL,"Kleidung"),
+		(NULL,"Bücher & DVD's"),
+		(NULL,"Special Offer"),
+		(NULL,"Kuscheltiere"),
+		(NULL,"Möbel"),
+		(NULL,"Schmuck");
+
+
+
+INSERT INTO tblArtikel
+VALUES  (1,"40er Kette","Eine Schmuckkette, mit glitzer Optik.",1,5.99,2,6),
+        (2,"Buffetschrank Kröte","Ein sehr schöner schnuckeliger Schrank.",1,33.49,4,5),
+        (3,"Buffetschrank North Sea","Ein sehr schöner Schrank, mit North Sea Optik.",1,69.99,4,5),
+        (4,"Buffetschrank weiß","Ein sehr schöner weißer Schrank.",1,29.99,4,5),   
+        (5,"gelbe Vase","Eine gelbe Vase, in Flaschenoptik.",1,2.99,3,5),
+        (6,"Glaskugel","Für eine glänzende Zukunftsvorhersage.",1,1.99,2,5),
+        (7,"Glasvasen","Kristallklare Glasvasen, die das mögen.",1,6.99,4,5),
+        (8,"Halbedelsteinkette","Ein sehr schöner weißer Schrank.",1,17.09,1,6),
+        (9,"Kleid","Ein rotes Vintage Kleid, mit Mustern.",1,7.99,4,1),
+        (10,"Körnerkatze","Eine süße Miezekatze, mit Körnerkissen.",1,4.99,3,4),
+        (11,"Kommodemonster","Wer hat das Kommodemonster freigelassen?",1,8.99,4,5),
+        (12,"Micky Maus","Willkommen in Mickey Maus Wunderhaus.",1,3.79,4,5),
+        (13,"schwarzer Rock","Ein schwarzes Vintage Kleid, mit Lila Mustern.",1,5.99,4,1),
+        (14,"Rosenthalvase","Vase, mit künstlerischen Touch.",1,9.49,1,5),
+        (15,"Schale 1","Vase mit Indianer Mustern.",1,3.99,1,5),
+        (16,"Schale 2","Vase mit Nazar Amulett Replica",1,3.99,1,5),                                              
+        (17,"Sideboard Krokodil","Yes! Lucky me. The Sewers of Paris! Crocodile Heaven!",1,14.99,4,5);
+
+
+INSERT INTO tblBild
+VALUES 	("/images/artikelbilder/40erkette.jpg",1),
+		("/images/artikelbilder/buffetschrankkroete.jpg",2),
+		("/images/artikelbilder/buffetschranknorthsea.jpg",3),
+		("/images/artikelbilder/buffetschrankweiss.jpg",4),
+		("/images/artikelbilder/gelbevase.jpg",5),
+		("/images/artikelbilder/glaskugel.jpg",6),
+		("/images/artikelbilder/glasvasen.jpg",7),
+		("/images/artikelbilder/halbedelsteinkette.jpg",8),
+		("/images/artikelbilder/kleid.jpg",9),
+		("/images/artikelbilder/koernerkatze.jpg",10),
+		("/images/artikelbilder/kommodemonster.jpg",11),
+		("/images/artikelbilder/mickymaus.jpg",12),
+		("/images/artikelbilder/rockschwarz.jpg",13),
+		("/images/artikelbilder/rosenthalvase.jpg",14),
+		("/images/artikelbilder/schale1.jpg",15),
+		("/images/artikelbilder/schale2.jpg",16),
+		("/images/artikelbilder/sideboardkroko.jpg",17);
+
+
+
+-- EINEN ARTIKEL MIT ZUSTAND, KATEGORIE AUSGEBEN
+-- SELECT *
+-- FROM tblArtikel
+-- LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID
+-- RIGHT JOIN tblZustand ON tblArtikel.f_zustID = p_zustID
+-- RIGHT JOIN tblKategorie ON tblArtikel.f_katID = p_katID; 

@@ -37,80 +37,14 @@ session_start();
     </header>
 
 <main>
-<!-- 
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
 
 
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div>
-
-
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div>
-
-
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div> -->
 
 <p style="font-size:45pt">
 
 JETZT KAUFEN!!!
 </p>
-
+noch unter Konstruktion!!
 </main>
 
     <footer><br>

@@ -1,7 +1,7 @@
 <?php 
 
 session_start(); 
-
+include(dirname(__FILE__)."/dbconnection.php");
 ?>
 
 <!DOCTYPE html>
@@ -37,79 +37,50 @@ session_start();
     </header>
 
 <main>
-<!-- 
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div>
-
-
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div>
-
-
-<div class="column-container">
-
-    <div class="column">
-        <img src="produktA.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktB.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-    <div class="column">
-        <img src="produktC.png">
-        <h1><?php echo $productname; ?> </h2>
-    </div>
-
-
-</div> -->
-
 <p style="font-size:45pt">
-
 Kleidung
 </p>
+
+<div class="galleryWrapper">
+    
+<?php 
+
+$abfrage_produkte = "SELECT * 
+                     FROM tblArtikel
+                     LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID
+                     WHERE f_katID = 1 ";
+
+$result = $con->query($abfrage_produkte);
+
+
+if ($result->num_rows > 0) {
+    while($row = $result->fetch_assoc()) {       
+        echo "
+        <div class='row'>
+          <div class='column1' style='background-color:transparent;'>
+        <img src='" . $row["bildPfad"] . "' alt='" . $row["artName"] . "' height='180'>
+          </div>
+          <div class='column2' style='background-color:black;'>
+            <h2>" . $row["artName"] . "</h2>
+            <p>" . $row["artBeschreibung"] . "</p>
+            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:30px'>ZUM WARENKORB</button>
+            </div>
+        </div>";
+    }
+
+    /* close connection */
+$con->close();
+} else {
+    echo "<p>Aktuell keine Produkte verfügbar :( </p>";
+}
+
+
+
+
+
+?>
+
+  </div>
 
 </main>
 

@@ -43,27 +43,40 @@ include(dirname(__FILE__)."/dbconnection.php");
 
 
 <div class="galleryWrapper">
+    
 <?php 
 
-$abfrage_produkte = "SELECT *
+$abfrage_produkte = "SELECT * 
                      FROM tblArtikel
-                     INNER JOIN tblBild ON p_artID = f_artID";
+                     LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID";
 
 $result = $con->query($abfrage_produkte);
 
+
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {       
-        echo "<div class='galleryItem'>
-                <a target='_blank' href='" . $row["bildPfad"] . "'>
-                    <img src='" . $row["bildPfad"] . "' alt='" . $row["artName"] . "' width='600' height='400'>
-                </a>
-                <div class='desc'>" . $row["artName"] . "<div class='price'><b>" . $row["artPreis"] . "€</b></div>
-                </div>
-              </div>";
+        echo "
+        <div class='row'>
+          <div class='column1' style='background-color:transparent;'>
+        <img src='" . $row["bildPfad"] . "' alt='" . $row["artName"] . "' height='180'>
+          </div>
+          <div class='column2' style='background-color:black;'>
+            <h2>" . $row["artName"] . "</h2>
+            <p>" . $row["artBeschreibung"] . "</p>
+            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:30px'>ZUM WARENKORB</button>
+            </div>
+        </div>";
     }
+
+    /* close connection */
+$con->close();
 } else {
     echo "<p>Aktuell keine Produkte verfügbar :( </p>";
 }
+
+
+
+
 
 ?>
 
