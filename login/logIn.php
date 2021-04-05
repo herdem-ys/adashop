@@ -1,6 +1,5 @@
 <?php
     session_start();
-
     include(dirname(__FILE__)."/../dbconnection.php"); // HERSTELLEN DER DATENBANK VERBINDUNG
   
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
