@@ -30,7 +30,17 @@ include(dirname(__FILE__)."/dbconnection.php");
                                         <li><a href="/kleidung.php">Kleidung</a></li>
                                         <li><a href="/spielsachen.php">Spielzeuge</a></li>
                                         <li><a href="/books_dvds.php">Bücher & DVDs</a></li>
-                                        <li><a href="/login/login.php">Anmelden</a></li>
+                                        <?php 
+    
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        echo "<li><a href='/login/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
+    }else {
+        echo "<li><a href='/login/login.php'>Anmelden</a></li>";
+    }
+    
+    
+    ?>
+    
                                     </ul>
                                 </div>
             </nav>
@@ -65,7 +75,8 @@ if ($result->num_rows > 0) {
           <div class='column2' style='background-color:black;'>
             <h2>" . $row["artName"] . "</h2>
             <p>" . $row["artBeschreibung"] . "</p>
-            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:30px'>ZUM WARENKORB</button>
+            <h2>" . $row["artPreis"] . " €</h2>
+            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:0px'>ZUM WARENKORB</button>
             </div>
         </div>";
     }

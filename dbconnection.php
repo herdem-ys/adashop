@@ -1,7 +1,7 @@
 <?php
     $host = "localhost";        
-    $dbusername = "root"; // SOLLTE FÜR SICHERHEIT EINGERICHTET WERDEN // EXTRA BENUTZER!!
-    $dbpassword = "";
+    $dbusername = "adaKunde"; 
+    $dbpassword = "geheim";
     $dbname = "adashop";  
 
     $con = new mysqli($host, $dbusername, $dbpassword, $dbname); // VERBINDUNG

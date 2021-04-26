@@ -30,7 +30,17 @@
                                         <li><a href="/kleidung.php">Kleidung</a></li>
                                         <li><a href="/spielsachen.php">Spielzeuge</a></li>
                                         <li><a href="/books_dvds.php">Bücher & DVDs</a></li>
-                                        <li><a href="/login/login.php">Anmelden</a></li>
+                                        <?php 
+    
+    if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        echo "<li><a href='/login/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
+    }else {
+        echo "<li><a href='/login/login.php'>Anmelden</a></li>";
+    }
+    
+    
+    ?>
+    
                                     </ul>
                                 </div>
             </nav>

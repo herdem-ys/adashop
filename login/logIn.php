@@ -1,42 +1,46 @@
 <?php
     session_start();
-
     include(dirname(__FILE__)."/../dbconnection.php"); // HERSTELLEN DER DATENBANK VERBINDUNG
   
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
         echo 'Sind sie bereits eingeloggt!';
-        header('Location: index.php');
+        header('Location: ../index.php');
         exit;
-    } else {
-        $email = filter_input(INPUT_POST, 'email');
-        $password_1 = filter_input(INPUT_POST, 'password_1');
+    } else if(isset($_POST["email"]) && isset($_POST["password"]) ){
 
-        // To protect MySQL injection (more detail about MySQL injection)
-        $email = stripslashes($email);
-        $password_1 = stripslashes($password_1);
+            $email = filter_input(INPUT_POST, 'email');
+            $password = md5(filter_input(INPUT_POST, 'password'));
 
+
+        
 
         $sqlLoginUser = "SELECT *
                           FROM tblKunde
-                          WHERE kMail='$email' and kPasswort='$password_1'";
+                          WHERE kMail='$email' and kPasswort='$password'";
 
         $result = $con->query($sqlLoginUser);
     
-
         while ($row = $result->fetch_row()) {
             // Die Felder der jeweiligen Zeile sind jetzt im Array $row enthalten.
            }
            
     
         // If the result matched $username and $password, the table row must be one row
-        if($row == 1){
-            session_start();
-            $_SESSION['loggedin'] = true;
-            $_SESSION['email'] = $email;
+        if($result){
+                $_SESSION['loggedin'] = true;
+                $_SESSION['email'] = $email;
+                $_SESSION['password'] = $password;                   
+                
+                echo 'Eingeloggt!';
+                header('Location: ../index.php');
+                exit;
+        }else {
+            echo "Bitte prüfen sie ihre Eingaben!";
         }
     }
 
-
+    /* close connection */
+    $con->close();
 ?>
 
 <html>
@@ -100,7 +104,7 @@
                                         <p style="display:inline;">Passwort:</p>
                                     </td>
                                     <td>
-                                        <input type="password" name="password_1" required>
+                                        <input type="password" maxlength="20" name="password" required>
                                     </td>
                                 </tr>
                                 
@@ -114,11 +118,9 @@
                             </button>
                         </form>
                         </fieldset>      
-                    </div>
-
-                </div>        
+       
                 <br>               
-                <a href="register.php">Kein Konto?</a>
+                <a href="register.php" class="optionLink1">Kein Konto?</a>
                 <br><br>
         </main>
 

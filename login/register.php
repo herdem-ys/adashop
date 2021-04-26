@@ -1,31 +1,69 @@
 <?php
+    session_start();
     include(dirname(__FILE__)."/../dbconnection.php"); // HERSTELLEN DER DATENBANK VERBINDUNG
-
-    $vorname = filter_input(INPUT_POST, 'vorname');
-    $nachname = filter_input(INPUT_POST, 'nachname');
-    $email = filter_input(INPUT_POST, 'email');
-    $password_1 = filter_input(INPUT_POST, 'password_1');
-    $password_2 = filter_input(INPUT_POST, 'password_2'); // Passwort wiederholung
-
-    $gebDatum = filter_input(INPUT_POST, 'gebDatum');
-    $iban = filter_input(INPUT_POST, 'iban');
-    $ort = filter_input(INPUT_POST, 'ort');
-    $plz = filter_input(INPUT_POST, 'plz');
-    $strasse = filter_input(INPUT_POST, 'strasse');
-    $hausnummer = filter_input(INPUT_POST, 'hausnummer'); // Passwort wiederholung
-
-    $query = "INSERT INTO tblKunde (kGebDat ,kNachname,kVorname,kStrasse,kPlz,kOrt,kIban,kPasswort,kMail)
-              VALUES ('$gebDatum','$nachname','$vorname','$strasse','$plz','$ort','$iban','$password_1','$email')";
-
-    $result = $con->query($query);
     
-    if (!$result) {
-        die('Datenbankfehler: '.$con->errorInfo()[2]);
-    };
+if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+        echo 'Sind sie bereits eingeloggt!';
+        header('Location: ../index.php');
+        exit;
+    }
+
+            $vorname = filter_input(INPUT_POST, 'vorname');
+            $nachname = filter_input(INPUT_POST, 'nachname');
+            $email = filter_input(INPUT_POST, 'email');
+            
+            $password_1 = filter_input(INPUT_POST, 'password_1');
+            $password_2 = filter_input(INPUT_POST, 'password_2'); // Passwort wiederholung
+
+            $iban = filter_input(INPUT_POST, 'iban');
+            $ort = filter_input(INPUT_POST, 'ort');
+            $plz = filter_input(INPUT_POST, 'plz');
+            $strasse = filter_input(INPUT_POST, 'strasse');
+            $hausnummer = filter_input(INPUT_POST, 'hausnummer');
+            $strasseMitNr = $strasse . " " . $hausnummer;
+
+
+
+            if(strcmp($password_1, $password_2) == 0){
+                $pw_encrypted = md5($password_1);
+            }
+
+  
+
+            if(isset($_POST["vorname"]) && isset($_POST["nachname"]) && isset($_POST["email"])){
+                
+                // GUCKE OB BENUTZER BEREIST VORHANDEN?
+
+
+                if (isset($_POST['gebDatum'])) {
+                    $gebDatum = date($_POST['gebDatum']);
+                }
+
+                $query_mysql = "INSERT INTO tblKunde (p_kundenNr, kGebDat, kNachname, kVorname, kStrasse, kPlz, kOrt, kIban, kPasswort, kMail)
+                VALUES (NULL, '$gebDatum', '$nachname', '$vorname', '$strasseMitNr', '$plz', '$ort', '$iban', '$pw_encrypted', '$email')"; 
+                
+                $result = $con->query($query_mysql);
+                
+                if($result){
+                    session_start();
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['email'] = $email;
+                    $_SESSION['password'] = $pw_encrypted;                   
+                    
+                    echo 'Konto wurde registriert!';
+                    header('Location: ../index.php');
+                    exit;
+                }
+
+
+            }
 
 
 
 
+
+    /* close connection */
+    $con->close();
 ?>
 
 
@@ -107,7 +145,7 @@
                                 <p style="display:inline;">Passwort:</p>
                             </td>
                             <td>
-                                <input type="password" name="password_1" required>
+                                <input type="password" name="password_1" >
                             </td>
                         </tr>
                         
@@ -121,7 +159,7 @@
                                 <p style="display:inline;">Passwort wiederholen:</p>
                             </td>
                             <td>
-                                <input type="password" name="password_2" required>
+                                <input type="password" name="password_2" >
                             </td>
                         </tr>
                         
@@ -133,7 +171,7 @@
                                 <p style="display:inline;">Geburtsdatum:</p>
                             </td>
                             <td>
-                                <input type="text" name="gebDatum" autocomplete="on" required> 
+                                <input type="date" name="gebDatum" autocomplete="on" required> 
                             </td>
                         </tr>
 
@@ -203,7 +241,7 @@
 
                 <br>
 
-            <a href="login.php">Bereits ein Konto?</a>
+            <a href="login.php" class="optionLink1">Bereits ein Konto?</a>
 </main>
         <footer><br>
         <div class="blur-rule"></div>

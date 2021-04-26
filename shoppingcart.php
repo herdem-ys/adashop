@@ -1,11 +1,15 @@
-<?php 
+<?php
 
 session_start(); 
+
 include(dirname(__FILE__)."/dbconnection.php");
+include(dirname(__FILE__)."/warenkorb_backend.php");
+
+
 
 ?>
 
-<!DOCTYPE html>
+
 <html lang="de">
 <head>
 
@@ -49,17 +53,13 @@ include(dirname(__FILE__)."/dbconnection.php");
 
 <main>
 
-<p style="font-size:45pt">
-Spielzeuge & Kuscheltiere
-</p>
 <div class="galleryWrapper">
-    
-<?php 
+    <h1 style="text-align:left">Warenkorb</h1>
+    <?php 
 
 $abfrage_produkte = "SELECT * 
                      FROM tblArtikel
-                     LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID
-                     WHERE f_katID = 4";
+                     LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID";
 
 $result = $con->query($abfrage_produkte);
 
@@ -73,15 +73,18 @@ if ($result->num_rows > 0) {
           </div>
           <div class='column2' style='background-color:black;'>
             <h2>" . $row["artName"] . "</h2>
-            <p>" . $row["artBeschreibung"] . "</p>
-            <h2>" . $row["artPreis"] . " €</h2>
-            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:0px'>ZUM WARENKORB</button>
+            <p>" . $row["artBeschreibung"] . "</p><br>
+            <h3 style='text-align:right;font-size:25pt'>" . $row["artPreis"] . " €</h3>
             </div>
         </div>";
     }
 
+    echo "<h3 style='text-align:right;font-size:25pt'> GESAMTPREIS ALLER ARTIKEL €</h3>";
+    echo "<button type='submit' name='startOrder' value='startOrder' style='width: 270px;height:34px'>BESTELLUNG ABWICKELN</button>";
+
     /* close connection */
-$con->close();
+    $con->close();
+
 } else {
     echo "<p>Aktuell keine Produkte verfügbar :( </p>";
 }
@@ -91,8 +94,11 @@ $con->close();
 
 
 ?>
+</div>
 
-  </div>
+
+
+
 </main>
 
     <footer><br>
@@ -109,6 +115,9 @@ $con->close();
 
 </body>
 </html>
+
+
+
 
 
 

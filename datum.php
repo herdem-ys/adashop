@@ -14,16 +14,17 @@
 </head>
 <body>
 <p style="font-size:45pt">
-<script>
 
-'use strict';
+    <?php 
+    
+    $wochentage = array("Sonntag","Montag","Dienstag","Mittwoch","Donnerstag","Freitag","Samstag");
+    $monate = array("Januar","Februar","M&auml;rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember");
 
-var d = new Date();
-var n = d.toLocaleDateString('de-DE');
-
-document.write(n);
-
- </script>
+    $datum = "Heute ist der " . date('d.') . " " . $monate[date('n')-1] . " " .date('Y');
+    echo $datum;
+    
+    
+    ?>
  </p>
 </body>
 </html>

@@ -13,7 +13,7 @@ CREATE TABLE IF NOT EXISTS tblKunde (
 	kPlz INT UNSIGNED NOT NULL,
 	kOrt VARCHAR( 40 ) NOT NULL,
 	kIban CHAR( 22 ) NOT NULL,
-	kPasswort VARCHAR( 20 ) NOT NULL,
+	kPasswort VARCHAR(255) NOT NULL,
 	kMail VARCHAR( 40 ) NOT NULL
 );
 
@@ -124,6 +124,17 @@ VALUES 	("/images/artikelbilder/40erkette.jpg",1),
 		("/images/artikelbilder/schale1.jpg",15),
 		("/images/artikelbilder/schale2.jpg",16),
 		("/images/artikelbilder/sideboardkroko.jpg",17);
+
+
+## BENUTZER
+
+CREATE USER 'adaKunde'@'%' IDENTIFIED BY 'geheim';
+
+GRANT SELECT ON * TO adaKunde; # LESE ZUGRIFF AUF ALLE TABELLEN
+
+GRANT INSERT,UPDATE,DELETE ON tblKunde TO adaKunde; 
+GRANT INSERT,UPDATE,DELETE ON tblBestellung TO adaKunde;
+GRANT INSERT,UPDATE,DELETE ON tblZustand TO adaKunde;
 
 
 
