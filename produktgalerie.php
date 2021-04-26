@@ -62,7 +62,6 @@ $abfrage_produkte = "SELECT *
 
 $result = $con->query($abfrage_produkte);
 
-
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {       
         echo "
