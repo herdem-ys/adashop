@@ -1,7 +1,4 @@
 <?php
-
-session_start(); 
-
 include(dirname(__FILE__)."/dbconnection.php");
 
 
@@ -13,10 +10,17 @@ class warenkorb{
 
     private $shoppingItems; // undefiniert
 
-    public function addItemsToOrder($strassenname) { // Parameter
-        $this->shoppingItems = $strassenname; // Attributzugriff
+    public function addItemsToOrder($Item) { // Parameter
+        $this->shoppingItems+=$Item; // Attributzugriff
     }
 
+    public function removeItemsFromOrder($Item) { // Parameter
+        $this->shoppingItems-=$Item; // Attributzugriff
+    }
+
+    public function testtest(){
+        echo "HAT GEFUNZT";
+    }
 
     public function startOrder($strassenname) { // Parameter
         $this->shoppingItems = $strassenname; // Attributzugriff

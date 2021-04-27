@@ -145,7 +145,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 <p style="display:inline;">Passwort:</p>
                             </td>
                             <td>
-                                <input type="password" name="password_1" >
+                                <input type="password" name="password_1" required>
                             </td>
                         </tr>
                         
@@ -159,7 +159,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
                                 <p style="display:inline;">Passwort wiederholen:</p>
                             </td>
                             <td>
-                                <input type="password" name="password_2" >
+                                <input type="password" name="password_2" required>
                             </td>
                         </tr>
                         

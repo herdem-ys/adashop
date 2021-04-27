@@ -5,7 +5,10 @@ session_start();
 include(dirname(__FILE__)."/dbconnection.php");
 include(dirname(__FILE__)."/warenkorb_backend.php");
 
-
+if(isset($_POST["startOrder"])){
+    $warenkorb = new warenkorb();
+    echo $warenkorb.testtest();
+}
 
 ?>
 
@@ -38,7 +41,7 @@ include(dirname(__FILE__)."/warenkorb_backend.php");
                                         <?php 
     
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        echo "<li><a href='/login/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
+        echo "<li><a href='/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
     }else {
         echo "<li><a href='/login/login.php'>Anmelden</a></li>";
     }
@@ -63,9 +66,12 @@ $abfrage_produkte = "SELECT *
 
 $result = $con->query($abfrage_produkte);
 
-
+$gesamtpreis = 0.00;
+ 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {       
+    while($row = $result->fetch_assoc()) {  
+        $gesamtpreis+= $row["artPreis"];
+        
         echo "
         <div class='row'>
           <div class='column1' style='background-color:transparent;'>
@@ -79,8 +85,8 @@ if ($result->num_rows > 0) {
         </div>";
     }
 
-    echo "<h3 style='text-align:right;font-size:25pt'> GESAMTPREIS ALLER ARTIKEL €</h3>";
-    echo "<button type='submit' name='startOrder' value='startOrder' style='width: 270px;height:34px'>BESTELLUNG ABWICKELN</button>";
+    echo "<h3 style='text-align:right;font-size:25pt'> GESAMTPREIS ALLER ARTIKEL ". $gesamtpreis ."€</h3>";
+    echo "<button type='submit' name='startOrder' value='startOrder' style='width: 320px;height:44px'>BESTELLUNG ABWICKELN</button>";
 
     /* close connection */
     $con->close();

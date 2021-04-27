@@ -147,6 +147,23 @@ footer p{
 }
 
 
+#editUser{
+  border: none;
+  background-color: #ffffff;
+  color: white;
+  font-size: 12pt;
+  font-family: 'Zwizz Bold';
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+#editUser:hover{
+  border: none;
+  background-color: rgb(196, 193, 24);
+  transition: 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  cursor: pointer;
+}
+
+
 
 
 
@@ -203,3 +220,31 @@ div.galleryWrapper{
     display: table;
     clear: both;
   }
+
+
+  .blink_text { /* IST KOPIERT, IST ABER AUCH NUR EIN KLEINES FEATURE ;) */
+
+    animation:2s blinker linear infinite;
+    -webkit-animation:2s blinker linear infinite;
+    -moz-animation:2s blinker linear infinite;
+
+     color: red;
+    }
+
+    @-moz-keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+     }
+
+    @-webkit-keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+     }
+
+    @keyframes blinker {  
+     0% { opacity: 1.0; }
+     50% { opacity: 0.0; }
+     100% { opacity: 1.0; }
+     }

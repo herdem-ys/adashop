@@ -12,30 +12,34 @@
             $password = md5(filter_input(INPUT_POST, 'password'));
 
 
-        
 
-        $sqlLoginUser = "SELECT *
-                          FROM tblKunde
-                          WHERE kMail='$email' and kPasswort='$password'";
+        $sqlLoginUser = "SELECT * FROM `tblkunde` WHERE (`tblkunde`.`kMail` = '$email' AND `tblkunde`.`kPasswort` = '$password');";
 
         $result = $con->query($sqlLoginUser);
     
-        while ($row = $result->fetch_row()) {
-            // Die Felder der jeweiligen Zeile sind jetzt im Array $row enthalten.
-           }
            
     
         // If the result matched $username and $password, the table row must be one row
         if($result){
-                $_SESSION['loggedin'] = true;
-                $_SESSION['email'] = $email;
-                $_SESSION['password'] = $password;                   
-                
-                echo 'Eingeloggt!';
-                header('Location: ../index.php');
-                exit;
-        }else {
-            echo "Bitte prüfen sie ihre Eingaben!";
+            if ($result->num_rows > 0) {
+                while($row = $result->fetch_assoc()) {    
+                    if((strcmp($email, $row["kMail"]) == 0) && (strcmp($password, $row["kPasswort"]) == 0)){
+                        $_SESSION['loggedin'] = true;
+                        $_SESSION['email'] = $email;
+                        $_SESSION['password'] = $password;                   
+                        
+                        echo 'Eingeloggt!';
+                        header('Location: ../index.php');
+                        exit;
+                    }
+       
+                }
+            }else {
+                echo "Bitte prüfen sie ihre Eingaben!";
+            }
+
+
+
         }
     }
 

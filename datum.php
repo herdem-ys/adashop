@@ -22,6 +22,7 @@
 
     $datum = "Heute ist der " . date('d.') . " " . $monate[date('n')-1] . " " .date('Y');
     echo $datum;
+    echo "<br>" . date('d.',strtotime("2011-01-07"));
     
     
     ?>

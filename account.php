@@ -2,8 +2,13 @@
 session_start(); 
 include(dirname(__FILE__)."/dbconnection.php"); 
 
-            $currentUserMail = $_SESSION['email'];
-            $currentUserPassword = $_SESSION['password'];
+if (!isset($_SESSION['email']) && !isset($_SESSION['password'])) {
+    header('Location: login/register.php');
+    exit;
+}else{
+    $currentUserMail = $_SESSION['email'];
+    $currentUserPassword = $_SESSION['password'];
+}
 
             if(isset($_POST["logout"])){
                     session_start();
@@ -28,8 +33,7 @@ include(dirname(__FILE__)."/dbconnection.php");
                     header('Location: login/register.php');
                     exit;
             }
-    /* close connection */
-    $con->close();
+
 ?>
 
 <!DOCTYPE html>
@@ -61,7 +65,7 @@ include(dirname(__FILE__)."/dbconnection.php");
 <?php 
     
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-    echo "<li><a href='/login/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
+    echo "<li><a href='/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
 }else {
     echo "<li><a href='/login/login.php'>Anmelden</a></li>";
 }
@@ -81,8 +85,7 @@ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
 <form action="account.php" method="post">     <!-- html dont show username  - austesten!!! -->
                             
     
-    
-<!-- ------------------------------------------------------------------------------------------------------------ 
+
 
 
 <?php 
@@ -93,18 +96,34 @@ $abfrage_konto = "SELECT * FROM `tblkunde` WHERE (`tblkunde`.`kMail` = '$current
 
 $result = $con->query($abfrage_konto);
 
+$monate = array("Januar","Februar","M&auml;rz","April","Mai","Juni","Juli","August","September","Oktober","November","Dezember");
+
+"Heute ist der " . date('d.') . " " . $monate[date('n')-1] . " " .date('Y');
 
 if ($result->num_rows > 0) {
-    while($row = $result->fetch_assoc()) {       
+    while($row = $result->fetch_assoc()) {
+        $datumFormatiert = "geboren am " . date('d.', strtotime( $row["kGebDat"])) . " " . $monate[date('n',strtotime( $row["kGebDat"]) )-1] . " " .date('Y',strtotime( $row["kGebDat"]));
+        
+        if (strlen($row["kPlz"])>1) { // WENN PLZ mehr als nur eine einfache 0 beeinhaltet, dann wurde etwas eingegeben, also anzeigen lassen!
+            $plz = $row["kPlz"];
+        }else {
+            $plz = "";
+        }
+
+        if (strlen($row["kIban"])>1) { // WENN PLZ mehr als nur eine einfache 0 beeinhaltet, dann wurde etwas eingegeben, also anzeigen lassen!
+            $iban = "<p style='color:red' class='blink_text'>" . $row["kIban"] . "</p>";
+        }else {
+            $iban = "<p style='color:red' class='blink_text'> Sie müssen noch eine IBAN angeben!</p>";
+        }
+
         echo "
         <div class='row'>
           <div class='column2' style='background-color:black;text-align:left'>
             <h2>". $row["kNachname"] . ", " .$row["kVorname"] ."</h2>
-            <p>" . $row["kGebDat"] . "</p> 
-            <p>" . $row["gebDatum"] . "</p>
+            <p>" . $datumFormatiert . "</p> 
             <p>" . $row["kStrasse"] . "</p>
-            <p>" . $row["kPlz"] . " " . $row["kOrt"] . " </p>
-            <p>" . $row["kIban"] . "</p>
+            <p>" . $row["kOrt"] . " " . $plz . "  </p>
+            " . $iban . "
             </div>
         </div>";
     }
@@ -122,16 +141,21 @@ $con->close();
 ?>
 
 
------------------------------------------------------------------------------------------------------------- -->
+
     
     
                             <br>
                             <button type="submit" name="logout" value="logout" style="width: 270px;height:34px;">
                                 KONTO ABMELDEN
                             </button><br><br>
+                            <button type="submit" name="edituser" value="edituser" style="width: 270px;height:34px;color:black" id="editUser">
+                                KONTO BEARBEITEN
+                            </button><br><br>
                             <button type="submit" name="deleteuser" value="deleteuser" style="width: 270px;height:34px;color:black" id="deleteUser">
                                 KONTO LÖSCHEN
-                            </button>
+                            </button><br><br>
+
+
                     </form>
 
     </fieldset>

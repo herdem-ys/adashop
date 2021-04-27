@@ -33,7 +33,7 @@
                                         <?php 
     
     if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
-        echo "<li><a href='/login/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
+        echo "<li><a href='/shoppingcart.php'>Warenkorb</a></li>"; // WARENKORB ANZEIGEN?
     }else {
         echo "<li><a href='/login/login.php'>Anmelden</a></li>";
     }
