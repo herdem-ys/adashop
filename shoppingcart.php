@@ -6,6 +6,8 @@ include(dirname(__FILE__)."/dbconnection.php");
 include(dirname(__FILE__)."/warenkorb_backend.php");
 
 if(isset($_POST["startOrder"])){
+    header('Location: /umleitung_noch_nicht_fertig.html');
+    exit;
     $warenkorb = new warenkorb();
     echo $warenkorb.testtest();
 }
@@ -60,11 +62,11 @@ if(isset($_POST["startOrder"])){
     <h1 style="text-align:left">Warenkorb</h1>
     <?php 
 
-$abfrage_produkte = "SELECT * 
+$abfrage_produkte_in_warenkorb = "SELECT * 
                      FROM tblArtikel
                      LEFT JOIN tblBild ON tblArtikel.p_artID = tblBild.f_artID";
 
-$result = $con->query($abfrage_produkte);
+$result = $con->query($abfrage_produkte_in_warenkorb);
 
 $gesamtpreis = 0.00;
  
@@ -86,7 +88,7 @@ if ($result->num_rows > 0) {
     }
 
     echo "<h3 style='text-align:right;font-size:25pt'> GESAMTPREIS ALLER ARTIKEL ". $gesamtpreis ."€</h3>";
-    echo "<button type='submit' name='startOrder' value='startOrder' style='width: 320px;height:44px'>BESTELLUNG ABWICKELN</button>";
+    echo "<form action='shoppingcart.php' method='post'><button type='submit' name='startOrder' value='startOrder'  style='width: 470px;height:66px;'>BESTELLUNG ABWICKELN</button></form>";
 
     /* close connection */
     $con->close();
