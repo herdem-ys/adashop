@@ -3,6 +3,20 @@
 session_start(); 
 
 include(dirname(__FILE__)."/dbconnection.php");
+include(dirname(__FILE__)."/warenkorb_backend.php");
+
+$warenKorb = new Warenkorb();
+
+
+if(isset($_POST["addToWarenkorb"])){
+    $warenKorb->addItemToOrder($_POST["addToWarenkorb"],$_POST["stueckanzahl"]);
+    unset($_POST["addToWarenkorb"]);
+}
+
+if(isset($_POST["removeFromWarenkorb"])){
+    $warenKorb->removeItemFromOrder($_POST["removeFromWarenkorb"],$_POST["stueckanzahl"]);
+    unset($_POST["removeFromWarenkorb"]);
+}
 
 
 ?>
@@ -63,23 +77,36 @@ $abfrage_produkte = "SELECT *
 $result = $con->query($abfrage_produkte);
 
 if ($result->num_rows > 0) {
+        echo "<form action='produktgalerie.php' method='post' id='produkte'>";
     while($row = $result->fetch_assoc()) {       
-        echo "
-        <div class='row'>
+
+        echo "<div class='row'>
           <div class='column1' style='background-color:transparent;'>
         <img src='" . $row["bildPfad"] . "' alt='" . $row["artName"] . "' height='180'>
           </div>
           <div class='column2' style='background-color:black;'>
             <h2>" . $row["artName"] . "</h2>
             <p>" . $row["artBeschreibung"] . "</p>
-            <h2>" . $row["artPreis"] . " €</h2>
-            <button onclick='/* BESTELLUNG HIER ERSTELLEN */' style='width:100%;height:30px;margin-top:0px'>ZUM WARENKORB</button>
+            <label for='anzahl'>   Menge: </label>
+                <select id='anzahl' name='stueckanzahl' form='produkte'>
+                  <option value='1'>1 Stück (" . $row["artPreis"]   .   "€) </option>
+                  <option value='2'>2 Stück (" . $row["artPreis"]*2 .   "€)</option>
+                  <option value='3'>3 Stück (" . $row["artPreis"]*3 .   "€)</option>
+                  <option value='4'>4 Stück (" . $row["artPreis"]*4 .   "€)</option>
+                  <option value='5'>5 Stück (" . $row["artPreis"]*5 .   "€)</option>
+                  <option value='6'>6 Stück (" . $row["artPreis"]*6 .   "€)</option>
+                  <option value='7'>7 Stück (" . $row["artPreis"]*7 .   "€) </option>
+                  <option value='8'>8 Stück (" . $row["artPreis"]*8 .   "€)</option>
+                  <option value='9'>9 Stück (" . $row["artPreis"]*9 .   "€)</option>             
+                </select>
+                <br><br>
+                <h2 style='display:inline'>Einzelpreis: " . $row["artPreis"] . " €</h2><br>
+            <button type='submit' name='addToWarenkorb' value=" . $row["p_artID"] . " style='width:100%;height:30px;margin-top:0px'>ZUM WARENKORB</button>
             </div>
         </div>";
     }
+    echo "</form>";
 
-    /* close connection */
-$con->close();
 } else {
     echo "<p>Aktuell keine Produkte verfügbar :( </p>";
 }

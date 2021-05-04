@@ -1,29 +1,39 @@
 <?php
+
 include(dirname(__FILE__)."/dbconnection.php");
 
 
-/* CODE BY HERDEM CAN YASIT */
-/* GITHUB -> herdem-ys */
-/* SHOPPING CART SYSTEM */
-
 class Warenkorb {
-    // Properties
-    public $name;
-    public $color;
-  
-    // Methods
-    function set_name($name) {
-      $this->name = $name;
+
+    public $bestellZeit;
+    public $warenIDListe = array(array()); // HIER SIND NUR DIE ID´s DER JEWEILIGEN ARTIKEL, MIT DEREN BESTELLMENGEN
+    
+    
+    public function __construct() {
+        echo $this->bestellZeit;    // DATETIME IN MSQL
     }
-    function get_name() {
-      return $this->name;
+    
+    
+
+    public function addItemToOrder($itemToAdd, $quantity){
+        echo "<br>DIE FUNKTION addItemToOrder() WURDE MIT FOLGENDEN PARAMETERN AUFGERUFEN!<br>";
+        echo "(" .$itemToAdd . "," . $quantity . ")";
     }
-    function set_color($color) {
-      $this->color = $color;
+    
+    
+    public function removeItemFromOrder($itemToRemove, $quantity){
+        echo "<br>DIE FUNKTION removeItemFromOrder() WURDE AUFGERUFEN!<br>";
+        echo "(" .$itemToRemove . "," . $quantity . ")";
     }
-    function get_color() {
-      return $this->color;
+    
+    
+    public function bestellungAufgeben($name) {
+        $this->bestellZeit = date("Y-m-d H:i:s");
     }
+    
+
+
+    
   }
   
 

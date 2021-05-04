@@ -6,11 +6,10 @@ include(dirname(__FILE__)."/dbconnection.php");
 include(dirname(__FILE__)."/warenkorb_backend.php");
 
 if(isset($_POST["startOrder"])){
-    $test = new Warenkorb();
-    $test->set_name('Apple');
-    $test->set_color('Red');
-    echo "Name: " . $test->get_name();
+    // BESTELLUNG DURCHFÜHREN
 }
+
+
 
 ?>
 
