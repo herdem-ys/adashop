@@ -6,26 +6,26 @@ include(dirname(__FILE__)."/dbconnection.php");
 /* GITHUB -> herdem-ys */
 /* SHOPPING CART SYSTEM */
 
-class warenkorb{
-
-    private $shoppingItems; // undefiniert
-
-    public function addItemsToOrder($Item) { // Parameter
-        $this->shoppingItems+=$Item; // Attributzugriff
+class Warenkorb {
+    // Properties
+    public $name;
+    public $color;
+  
+    // Methods
+    function set_name($name) {
+      $this->name = $name;
     }
-
-    public function removeItemsFromOrder($Item) { // Parameter
-        $this->shoppingItems-=$Item; // Attributzugriff
+    function get_name() {
+      return $this->name;
     }
-
-    public function testtest(){
-        echo "HAT GEFUNZT";
+    function set_color($color) {
+      $this->color = $color;
     }
-
-    public function startOrder($strassenname) { // Parameter
-        $this->shoppingItems = $strassenname; // Attributzugriff
+    function get_color() {
+      return $this->color;
     }
-}
+  }
+  
 
 
 
