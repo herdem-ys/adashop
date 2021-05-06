@@ -29,6 +29,8 @@ class Warenkorb {
     
     public function bestellungAufgeben($name) {
         $this->bestellZeit = date("Y-m-d H:i:s");
+        $erstelleBestellung;
+        $referenziereArtikelAusBestellung; // HILFSTABELLE BEFÜLLEN MIT ARTIKEL UND BESTELLUNG ID
     }
     
 
