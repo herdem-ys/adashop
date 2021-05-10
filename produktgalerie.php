@@ -5,17 +5,31 @@ session_start();
 include(dirname(__FILE__)."/dbconnection.php");
 include(dirname(__FILE__)."/warenkorb_backend.php");
 
-$warenKorb = new Warenkorb();
+
 
 
 if(isset($_POST["addToWarenkorb"])){
-    $warenKorb->addItemToOrder($_POST["addToWarenkorb"],$_POST["stueckanzahl"]);
+    // ÜBERPRÜFUNG OB BESTELLUNG SCHON ANGELEGT?
+    $warenKorb = new Warenkorb();
+    
+    $quantity;
+    foreach ($_POST['Stuckzahl'] as $select){
+        $quantity  = $select;
+        break;
+    }
+    $warenKorb->addItemToOrder($_POST["addToWarenkorb"],$quantity);
     unset($_POST["addToWarenkorb"]);
 }
 
 if(isset($_POST["removeFromWarenkorb"])){
-    $warenKorb->removeItemFromOrder($_POST["removeFromWarenkorb"],$_POST["stueckanzahl"]);
+/*    $quantity;
+    foreach ($_POST['Stuckzahl'] as $select){
+        $quantity  = $select;
+        break;
+    }
+    $warenKorb->removeItemFromOrder($_POST["removeFromWarenkorb"],$quantity);
     unset($_POST["removeFromWarenkorb"]);
+*/
 }
 
 
@@ -88,7 +102,7 @@ if ($result->num_rows > 0) {
             <h2>" . $row["artName"] . "</h2>
             <p>" . $row["artBeschreibung"] . "</p>
             <label for='anzahl'>   Menge: </label>
-                <select id='anzahl' name='stueckanzahl' form='produkte'>
+                <select id='anzahl' name='Stuckzahl[]' form='produkte'>
                   <option value='1'>1 Stück (" . $row["artPreis"]   .   "€) </option>
                   <option value='2'>2 Stück (" . $row["artPreis"]*2 .   "€)</option>
                   <option value='3'>3 Stück (" . $row["artPreis"]*3 .   "€)</option>
